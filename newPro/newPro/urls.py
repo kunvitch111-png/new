@@ -14,13 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+# from django.contrib import admin
+# from django.urls import path, include
 
-# Хост проекта по умолчанию - 127.0.0.1:8000
+# # Хост проекта по умолчанию - 127.0.0.1:8000
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     # path() - встроенный метод в Django для преобразования и получения пути из тела запроса. Имеет два обязательных аргумента: путь относительно хоста проекта и файл маршрутизации
+#     # include() - встроенный метод в Django для подключения файла маршрутизации (urls.py)
+#     path('newapp/', include('newApp.urls')),
+# ]
+
+from django.contrib import admin
+from django.urls import include, path
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path() - встроенный метод в Django для преобразования и получения пути из тела запроса. Имеет два обязательных аргумента: путь относительно хоста проекта и файл маршрутизации
-    # include() - встроенный метод в Django для подключения файла маршрутизации (urls.py)
-    path('newapp/', include('newApp.urls')),
+    path("newapp/", include("newApp.urls")),
+    path("admin/", admin.site.urls),
 ]
