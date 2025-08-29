@@ -11,5 +11,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
+# def index(request):
+#     return HttpResponse("Hello, world. You're at the polls index.")
+
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    print(request.__dict__)
+    return render(request, 'newApp/index.html')
+
+# Новая страница About
+def about(request):
+    # print(request.__dict__)
+    return render(request, 'newApp/about.html')
